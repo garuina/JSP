@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	//forward는 서버 지원내에서 이동하기 때문에 타 서버지원으로 forwarding 안됨  
 	pageContext.forward("https://naver.com");
 
 %>
