@@ -7,7 +7,7 @@
 <%
 
 	request.setCharacterEncoding("UTF-8");
-	String uid = request.getParameter("uid");
+	String stdNo = request.getParameter("stdNo");
 	
 	// 데이터베이스 처리
 	String host = "jdbc:mysql://127.0.0.1:3306/java1db";
@@ -18,9 +18,9 @@
 	//2단계
 	Connection conn = DriverManager.getConnection(host, user, pass);
 	//3단계
-	String sql = "DELETE FROM `student` WHERE `no`=?";
+	String sql = "DELETE FROM `student` WHERE `stdNo`=?";
 	PreparedStatement psmt = conn.prepareStatement(sql);
-	psmt.setString(1, no);
+	psmt.setString(1, stdNo);
 	
 	//4단계
 	psmt.executeUpdate();

@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String uid = request.getParameter("uid");
+	String stdNo = request.getParameter("stdNo");
 	
 	// 데이터베이스 처리
 	String host = "jdbc:mysql://127.0.0.1:3306/java1db";
@@ -22,7 +22,7 @@
 	//3단계
 	Statement stmt = conn.createStatement();
 	//4단계
-	ResultSet rs = stmt.executeQuery("SELECT * FROM `student` WHERE `no`='"+no+"'");
+	ResultSet rs = stmt.executeQuery("SELECT * FROM `student` WHERE `stdNo`='"+stdNo+"'");
 	//5단계
 	if(rs.next()){
 		sb = new StudentBean();
@@ -57,23 +57,23 @@
 			<table border="1">
 				<tr>
 					<td>학번</td>
-					<td><input type="text" name="no" readonly="readonly" value="<%= sb.getStdNo()%>"/></td>
+					<td><input type="text" name="stdNo" readonly="readonly" value="<%= sb.getStdNo()%>"/></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" value="<%= sb.getStdName()%>"/></td>
+					<td><input type="text" name="stdName" value="<%= sb.getStdName()%>"/></td>
 				</tr>
 				<tr>
 					<td>휴대폰</td>
-					<td><input type="text" name="hp" value="<%= sb.getStdHp()%>"/></td>
+					<td><input type="text" name="stdHp" value="<%= sb.getStdHp()%>"/></td>
 				</tr>
 				<tr>
 					<td>학년</td>
-					<td><input type="number" name="year" value="<%= sb.getStdYear()%>"/></td>
+					<td><input type="number" name="stdYear" value="<%= sb.getStdYear()%>"/></td>
 				</tr>
 				<tr>
 					<td>주소</td>
-					<td><input type="number" name="address" value="<%= sb.getStdAddress()%>"/></td>
+					<td><input type="number" name="stdAddress" value="<%= sb.getStdAddress()%>"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="right">

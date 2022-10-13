@@ -6,11 +6,11 @@
 
 	//전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
-	String no  = request.getParameter("no");
-	String name = request.getParameter("name");
-	String hp   = request.getParameter("hp");
-	String year  = request.getParameter("year");
-	String address  = request.getParameter("address");
+	String stdNo  = request.getParameter("stdNo");
+	String stdName = request.getParameter("stdName");
+	String stdHp   = request.getParameter("stdHp");
+	String stdYear  = request.getParameter("stdYear");
+	String stdAddress  = request.getParameter("stdAddress");
 
 
 	// 데이터베이스 처리
@@ -25,15 +25,15 @@
 			// 2단계
 			Connection conn = DriverManager.getConnection(host, user, pass);
 			// 3단계
-			String sql = "UPDATE `student` SET `name`=?, `hp`=?, `year`=?, `address`=?";
-		   		   sql += "WHERE `no`=?";
+			String sql = "UPDATE `student` SET `stdName`=?, `stdHp`=?, `stdYear`=?, `stdAddress`=?";
+		   		   sql += "WHERE `stdNo`=?";
 		   		   
 			PreparedStatement psmt = conn.prepareStatement(sql);
-			psmt.setString(1, name);
-			psmt.setString(2, hp);
-			psmt.setString(3, year);
-			psmt.setString(4, address);
-			psmt.setString(5, no);
+			psmt.setString(1, stdName);
+			psmt.setString(2, stdHp);
+			psmt.setString(3, stdYear);
+			psmt.setString(4, stdAddress);
+			psmt.setString(5, stdNo);
 			
 			// 4단계
 			psmt.executeUpdate();

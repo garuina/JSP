@@ -5,11 +5,11 @@
 <%
 	// 전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
-	String no  = request.getParameter("no");
-	String name = request.getParameter("name");
-	String hp   = request.getParameter("hp");
-	String year  = request.getParameter("year");
-	String address  = request.getParameter("address");
+	String stdNo  = request.getParameter("stdNo");
+	String stdName = request.getParameter("stdName");
+	String stdHp   = request.getParameter("stdHp");
+	String stdYear  = request.getParameter("stdYear");
+	String stdAddress  = request.getParameter("stdAddress");
 	
 	// 데이터베이스 처리
 	String host = "jdbc:mysql://127.0.0.1:3306/java1db";
@@ -24,11 +24,11 @@
 		// 3단계
 		String sql = "INSERT INTO `student` VALUES (?,?,?,?,?)";
 		PreparedStatement psmt = conn.prepareStatement(sql);
-		psmt.setString(1, no);
-		psmt.setString(2, name);
-		psmt.setString(3, hp);
-		psmt.setString(4, year);
-		psmt.setString(5, address);
+		psmt.setString(1, stdNo);
+		psmt.setString(2, stdName);
+		psmt.setString(3, stdHp);
+		psmt.setString(4, stdYear);
+		psmt.setString(5, stdAddress);
 		// 4단계
 		psmt.executeUpdate();
 		// 5단계
