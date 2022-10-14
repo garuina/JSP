@@ -39,7 +39,7 @@
 				<tr>
 					<td>부서</td>
 					<td>
-						<select name="pos">
+						<select name="dep">
 							<option>영업1부</option>
 							<option>영업2부</option>
 							<option>영업3부</option>

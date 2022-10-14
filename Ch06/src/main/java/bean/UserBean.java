@@ -5,7 +5,6 @@ public class UserBean {
 	private String name;
 	private String hp;
 	private int age;
-	
 	public String getUid() {
 		return uid;
 	}
@@ -30,4 +29,8 @@ public class UserBean {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	
+	
+	
 }

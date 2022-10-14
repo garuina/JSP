@@ -11,7 +11,6 @@
 	String hp   = request.getParameter("hp");
 	String pos   = request.getParameter("pos");
 	String dep   = request.getParameter("dep");
-	String rdate   = request.getParameter("rdate");
 	
 	// 데이터베이스 처리
 	String host = "jdbc:mysql://127.0.0.1:3306/java1db";
@@ -24,26 +23,27 @@
 		// 2단계
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		// 3단계
-		String sql = "INSERT INTO `member` VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO `member` VALUES (?,?,?,?,?,Now())";
 		PreparedStatement psmt = conn.prepareStatement(sql);
 		psmt.setString(1, uid);
 		psmt.setString(2, name);
 		psmt.setString(3, hp);
 		psmt.setString(4, pos);
 		psmt.setString(5, dep);
-		psmt.setString(6, rdate);
+		
+		
 		// 4단계
 		psmt.executeUpdate();
 		// 5단계
 		// 6단계
-		psmt.close();
-		conn.close();		
+		conn.close();	
+		
 	}catch(Exception e){
 		e.printStackTrace();
 	}
 	
 	// 리다이렉트
-	response.sendRedirect("./register.jsp");	
+	response.sendRedirect("./list.jsp");	
 %>
 
 %>
