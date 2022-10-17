@@ -1,6 +1,6 @@
 package bean;
 
-public class customerBean {
+public class CustomerBean {
 	private String custid;
 	private String name;
 	private String hp;

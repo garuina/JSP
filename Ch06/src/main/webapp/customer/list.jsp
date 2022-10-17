@@ -1,3 +1,4 @@
+<%@page import="bean.CustomerBean"%>
 <%@page import="bean.UserBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -12,7 +13,7 @@
 		String user = "java1_admin1";
 		String pass = "1234";
 	
-	List<UserBean> users  = null;
+	List<CustomerBean> cs  = null;
 		
 	try{
 	// 1단계
@@ -25,17 +26,19 @@
 		String sql = "SELECT * FROM `customer`";
 		ResultSet rs = stmt.executeQuery(sql);
 	// 5단계
-		users = new ArrayList<>();
+		cs = new ArrayList<>();
 	
 		while(rs.next()){
-			UserBean ub = new UserBean();
+			CustomerBean cb = new CustomerBean();
 				
-			ub.setUid(rs.getString(1));
-			ub.setName(rs.getString(2));
-			ub.setHp(rs.getString(3));
-			ub.setAge(rs.getInt(4));
+			cb.setCustid(rs.getString(1));
+			cb.setName(rs.getString(2));
+			cb.setHp(rs.getString(3));
+			cb.setAddr(rs.getNString(4));
+			cb.setRdate(rs.getString(5));
 			
-			users.add(ub);
+			
+			cs.add(cb);
 		}
 		
 	
@@ -54,28 +57,29 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>user::list</title>
+		<title>customer::list</title>
 	</head>
 	<body>
-		<h3>user 목록</h3>
+		<h3>customer 목록</h3>
 		
 		<table border="1">
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>휴대폰</th>
-				<th>나이</th>
-				<th>관리</th>
+				<th>주소</th>
+				<th>날짜</th>
 			</tr>
-			<%for(UserBean ub : users){ %>
+			<%for(CustomerBean cb : cs){ %>
 			<tr>
-				<td><%= ub.getUid() %></td>
-				<td><%= ub.getName() %></td>
-				<td><%= ub.getHp() %></td>
-				<td><%= ub.getAge() %></td>
+				<td><%= cb.getCustid() %></td>
+				<td><%= cb.getName() %></td>
+				<td><%= cb.getHp() %></td>
+				<td><%= cb.getAddr() %></td>
+				<td><%= cb.getRdate() %></td>
 				<td>
-					<a href="./modify.jsp?uid=<%= ub.getUid()%>">수정</a>
-					<a href="./delet.jsp?uid=<%= ub.getUid()%>">삭제</a>
+					<a href="./modify.jsp?uid=<%= cb.getCustid()%>">수정</a>
+					<a href="./delet.jsp?uid=<%= cb.getCustid()%>">삭제</a>
 				</td>
 			</tr>
 			<% } %>

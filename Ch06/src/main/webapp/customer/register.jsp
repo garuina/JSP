@@ -10,7 +10,7 @@
 		
 		<a href="./list.jsp">customer 목록</a>
 		
-		<form action="./customerProc.jsp" method="post">
+		<form action="./registerProc.jsp" method="post">
 			<table border="1">
 				<tr>
 					<td>아이디</td>
