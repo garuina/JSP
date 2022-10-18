@@ -26,7 +26,7 @@ pageContext.setAttribute("pagePerson", new Person("한석봉", 99));
 	</ul>
 	
 	<h2>include 된 파일에서 page영역 읽어오기</h2>
-	<%@ include file="PageInclude.jsp" %>
+	
 	
 	<h2>페이지 이동 후 page 영역 읽어오기</h2>
 	<a href="PageLocation.jsp">PageLocation.jsp 바로가기</a>
