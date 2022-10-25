@@ -1,5 +1,6 @@
+<%@page import="kr.co.jboard1.db.Sql"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="config.DBCP"%>
+<%@page import="kr.co.jboard1.db.DBCP"%>
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
@@ -22,21 +23,8 @@
 		
 		Connection conn = DBCP.getConnection();
 		
-		String sql = "insert into `board_user` set";
-			sql += "`uid`=?,";
-			sql += "`pass`=SHA2(?, 256),";
-			sql += "`name`=?,";
-			sql += "`nick`=?,";
-			sql += "`email`=?,";
-			sql += "`hp`=?,";
-			sql += "`zip`=?,";
-			sql += "`addr1`=?,";
-			sql += "`addr2`=?,";
-			sql += "`regip`=?,";
-			sql += "`rdate`= NOW()";
-		
 		// 쿼리문이 파란.. 완성되지않은 준비된 상태면 prepared
-		PreparedStatement psmt = conn.prepareStatement(sql);	
+		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_USER);	
 		psmt.setString(1, uid);	
 		psmt.setString(2, pass1);	
 		psmt.setString(3, name);	
