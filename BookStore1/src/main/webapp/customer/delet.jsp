@@ -1,5 +1,5 @@
 
-<%@page import="config.DBCP"%>
+<%@page import="kr.co.shop.db.DBCP"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.mysql.cj.xdevapi.PreparableStatement"%>
 <%@page import="java.sql.DriverManager"%>

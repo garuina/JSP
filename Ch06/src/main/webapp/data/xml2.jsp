@@ -1,4 +1,4 @@
-<%@page import="config.JDBC"%>
+<%@page import="kr.co.shop.db.JDBC"%>
 <%@page import="org.jdom2.output.Format"%>
 <%@page import="org.jdom2.output.XMLOutputter"%>
 <%@page import="org.jdom2.Element"%>
@@ -7,7 +7,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="bean.UserBean"%>
+<%@page import="kr.co.shop.bean.UserBean"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/xml;charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%

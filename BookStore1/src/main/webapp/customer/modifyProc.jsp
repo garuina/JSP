@@ -1,4 +1,4 @@
-<%@page import="config.DBCP"%>
+<%@page import="kr.co.shop.db.DBCP"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>

@@ -1,5 +1,5 @@
-<%@page import="bean.StudentBean"%>
-<%@page import="bean.UserBean"%>
+<%@page import="kr.co.shop.bean.StudentBean"%>
+<%@page import="kr.co.shop.bean.UserBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>

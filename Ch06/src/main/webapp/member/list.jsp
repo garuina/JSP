@@ -3,7 +3,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="bean.MemberBean"%>
+<%@page import="kr.co.shop.bean.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
