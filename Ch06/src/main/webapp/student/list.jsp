@@ -1,8 +1,7 @@
-<%@page import="kr.co.shop.db.JDBC"%>
-<%@page import="kr.co.shop.db.DBCP"%>
+<%@page import="config.JDBC"%>
+<%@page import="bean.StudentBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.co.shop.bean.StudentBean"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>

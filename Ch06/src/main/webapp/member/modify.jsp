@@ -1,5 +1,4 @@
-<%@page import="kr.co.shop.bean.MemberBean"%>
-<%@page import="kr.co.shop.bean.UserBean"%>
+<%@page import="bean.MemberBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>

@@ -1,5 +1,4 @@
-<%@page import="kr.co.shop.bean.CustomerBean"%>
-<%@page import="kr.co.shop.bean.UserBean"%>
+<%@page import="bean.CustomerBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Statement"%>
