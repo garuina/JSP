@@ -1,3 +1,5 @@
+<%@page import="kr.co.jboard1.bean.ArticleBean"%>
+<%@page import="kr.co.jboard1.dao.ArticleDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.io.File"%>
@@ -26,39 +28,16 @@
 	String fname   = mr.getFilesystemName("fname");
 	String regip   = request.getRemoteAddr();
 	
+	ArticleBean article = new ArticleBean();
+	article.setTitle(title);
+	article.setContent(content);
+	article.setUid(uid);
+	article.setFname(fname);
+	article.setRegip(regip);
 	
-	//System.out.println("savePath : " + savePath);
-	//System.out.println("fname : " + fname);
-	int parent =0;
-	try{
-		Connection conn = DBCP.getConnection();
-		conn.setAutoCommit(false);
-		
-		Statement stmt = conn.createStatement();
-		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
-		psmt.setString(1, title);
-		psmt.setString(2, content);
-		psmt.setInt(3, fname == null ? 0 : 1);
-		psmt.setString(4, uid);
-		psmt.setString(5, regip);
-		
-		psmt.executeUpdate(); //insert
-		ResultSet rs = stmt.executeQuery(Sql.SELECT_MAX_NO); //select
-		
-		//작업확정
-		conn.commit();
-		
-		if(rs.next()){
-			parent = rs.getInt(1);
-		}
-		
-		rs.close();
-		psmt.close();
-		conn.close();
-		
-	}catch(Exception e){
-		e.printStackTrace();
-	}
+	ArticleDAO dao = ArticleDAO.getInstance();
+	int parent = dao.insertArticle(article);
+	
 	
 	// 파일을 첨부했으면 파일처리
 	if(fname != null){
@@ -70,30 +49,17 @@
 		System.out.println("1."+ext);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss_");
 		String now = sdf.format(new Date());
-		String newFname = now+uid+ext; // 20221026111323_kyhaw103.txt이렇게 년월일 시분초 아이디 확장자가 되어 파일 이름 중복 안됨
+		String newName = now+uid+ext; // 20221026111323_kyhaw103.txt이렇게 년월일 시분초 아이디 확장자가 되어 파일 이름 중복 안됨
 		System.out.println("2."+uid);
-		System.out.println("3."+newFname);
+		System.out.println("3."+newName);
 		
 		File oriFile = new File(savePath+"/"+fname);
-		File newFile = new File(savePath+"/"+newFname);
+		File newFile = new File(savePath+"/"+newName);
 		
 		oriFile.renameTo(newFile);
 		
 		// 파일 테이블 저장
-		try{
-			Connection conn = DBCP.getConnection();
-			PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_FILE);
-			psmt.setInt(1, parent);
-			psmt.setString(2, newFname);
-			psmt.setString(3, fname);
-			
-			psmt.executeUpdate();
-			psmt.close();
-			conn.close();
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		dao.insertFile(parent, newName, fname);
 		
 	}
 	
