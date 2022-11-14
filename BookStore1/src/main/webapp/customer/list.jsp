@@ -8,36 +8,34 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-		
-	List<CustomerBean> customers  = new ArrayList<>();
+List<CustomerBean> customers  = new ArrayList<>();
 	
 	try{
-		Connection conn = DBCP.getConnection();
+		Connection conn = DBHelper.getConnection();
 	
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `customer`");
 		
 		
-			while(rs.next()){
-				CustomerBean cb = new CustomerBean();
-					
-				cb.setCustId(rs.getInt(1));
-				cb.setName(rs.getString(2));
-				cb.setAddress(rs.getString(3));
-				cb.setPhone(rs.getString(4));
-				
-				customers.add(cb);
-			}
-				
+	while(rs.next()){
+		CustomerBean cb = new CustomerBean();
+			
+		cb.setCustId(rs.getInt(1));
+		cb.setName(rs.getString(2));
+		cb.setAddress(rs.getString(3));
+		cb.setPhone(rs.getString(4));
 		
-			rs.close();
-			stmt.close();
-			conn.close();
+		customers.add(cb);
+	}
+		
+		
+	rs.close();
+	stmt.close();
+	conn.close();
 		
 		}catch(Exception e){
-			e.printStackTrace();
+	e.printStackTrace();
 		}
-
 %>
 
 

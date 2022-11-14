@@ -6,14 +6,13 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 	String bookId = request.getParameter("bookId");
 	
 	
 	try{
 	
-	Connection conn = DBCP.getConnection();
+	Connection conn = DBHelper.getConnection();
 	String sql = "DELETE FROM `book` WHERE `bookId`=?";
 	PreparedStatement psmt = conn.prepareStatement(sql);
 	psmt.setString(1, bookId);

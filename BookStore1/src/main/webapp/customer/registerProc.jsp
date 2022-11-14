@@ -6,7 +6,7 @@
 <%@page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	// 전송 데이터 수신
+// 전송 데이터 수신
 	request.setCharacterEncoding("utf-8");
 	String custId   = request.getParameter("custId");
 	String name   	= request.getParameter("name");
@@ -15,7 +15,7 @@
 	
 	// 데이터베이스 작업
 	try{
-		Connection conn = DBCP.getConnection();
+		Connection conn = DBHelper.getConnection();
 		
 		// 3단계
 		String sql = "INSERT INTO `customer` VALUES (?,?,?,?)";

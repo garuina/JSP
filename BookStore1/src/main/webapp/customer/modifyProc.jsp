@@ -4,8 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-
-	//전송 데이터 수신
+//전송 데이터 수신
 		request.setCharacterEncoding("utf-8");
 		String custId   = request.getParameter("custId");
 		String name     = request.getParameter("name");
@@ -15,29 +14,27 @@
 
 
 		try{
-			Connection conn = DBCP.getConnection();
-			
-			String sql = "UPDATE `customer` SET `name`=?, `address`=?, `phone`=?";
+	Connection conn = DBHelper.getConnection();
+	
+	String sql = "UPDATE `customer` SET `name`=?, `address`=?, `phone`=?";
 		   		   sql += "WHERE `custId`=?";
 		   		   
-			PreparedStatement psmt = conn.prepareStatement(sql);
-			psmt.setString(1, name);
-			psmt.setString(2, address);
-			psmt.setString(3, phone);
-			psmt.setString(4, custId);
-			
-			// 4단계
-			psmt.executeUpdate();
-			// 5단계
-			// 6단계
-			psmt.close();
-			conn.close();		
-			
+	PreparedStatement psmt = conn.prepareStatement(sql);
+	psmt.setString(1, name);
+	psmt.setString(2, address);
+	psmt.setString(3, phone);
+	psmt.setString(4, custId);
+	
+	// 4단계
+	psmt.executeUpdate();
+	// 5단계
+	// 6단계
+	psmt.close();
+	conn.close();		
+	
 		}catch(Exception e){
-			e.printStackTrace();
+	e.printStackTrace();
 		}
 		   
 	response.sendRedirect("./list.jsp");
-
-
 %>

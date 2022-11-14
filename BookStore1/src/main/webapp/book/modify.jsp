@@ -5,13 +5,13 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 	String bookId = request.getParameter("bookId");
 	
 	BookBean bb = null;
 	
 	try{
-		Connection conn = DBCP.getConnection();
+		Connection conn = DBHelper.getConnection();
 		
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `book` WHERE `bookId`='"+bookId+"'");
@@ -19,11 +19,11 @@
 		
 		
 		if(rs.next()){
-			bb = new BookBean();
-			bb.setBookId(rs.getInt(1));
-			bb.setBookName(rs.getString(2));
-			bb.setPublisher(rs.getString(3));
-			bb.setPrice(rs.getInt(4));
+	bb = new BookBean();
+	bb.setBookId(rs.getInt(1));
+	bb.setBookName(rs.getString(2));
+	bb.setPublisher(rs.getString(3));
+	bb.setPrice(rs.getInt(4));
 		}
 		
 		rs.close();

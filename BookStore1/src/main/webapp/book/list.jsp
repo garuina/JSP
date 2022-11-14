@@ -8,36 +8,34 @@
 <%@page import="kr.co.shop.bean.BookBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-		
-	List<BookBean> books  = new ArrayList<>();
+List<BookBean> books  = new ArrayList<>();
 	
 	try{
-		Connection conn = DBCP.getConnection();
+		Connection conn = DBHelper.getConnection();
 	
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `book`");
 		
 		
-			while(rs.next()){
-				BookBean bb = new BookBean();
-					
-				bb.setBookId(rs.getInt(1));
-				bb.setBookName(rs.getString(2));
-				bb.setPublisher(rs.getString(3));
-				bb.setPrice(rs.getInt(4));
-				
-				books.add(bb);
-			}
-				
+	while(rs.next()){
+		BookBean bb = new BookBean();
+			
+		bb.setBookId(rs.getInt(1));
+		bb.setBookName(rs.getString(2));
+		bb.setPublisher(rs.getString(3));
+		bb.setPrice(rs.getInt(4));
 		
-			rs.close();
-			stmt.close();
-			conn.close();
+		books.add(bb);
+	}
+		
+		
+	rs.close();
+	stmt.close();
+	conn.close();
 		
 		}catch(Exception e){
-			e.printStackTrace();
+	e.printStackTrace();
 		}
-
 %>
 
 
