@@ -1,9 +1,9 @@
-<%@page import="kr.co.shop.db.JDBC"%>
+<%@page import="config.JDBC"%>
+<%@page import="bean.UserBean"%>
 <%@page import="com.mysql.cj.xdevapi.JsonArray"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.co.shop.bean.UserBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>

@@ -1,6 +1,6 @@
-<%@page import="kr.co.shop.db.DBCP"%>
+<%@page import="config.DBCP"%>
+<%@page import="bean.User5Bean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="kr.co.shop.bean.User5Bean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
