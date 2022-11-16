@@ -1,5 +1,5 @@
 <%@page import="config.JDBC"%>
-<%@page import="bean.StudentBean"%>
+<%@page import="kr.co.farmstory1.bean.StudentBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.Statement"%>

@@ -1,5 +1,5 @@
 
-<%@page import="kr.co.shop.db.DBCP"%>
+<%@page import="config.DBCP"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.mysql.cj.xdevapi.PreparableStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -12,7 +12,7 @@ request.setCharacterEncoding("UTF-8");
 	
 	try{
 	
-	Connection conn = DBHelper.getConnection();
+	Connection conn = DBCP.getConnection();
 	String sql = "DELETE FROM `customer` WHERE `custId`=?";
 	PreparedStatement psmt = conn.prepareStatement(sql);
 	psmt.setString(1, custId);

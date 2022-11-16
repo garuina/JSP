@@ -1,5 +1,5 @@
 <%@page import="config.JDBC"%>
-<%@page import="bean.UserBean"%>
+<%@page import="kr.co.farmstory1.bean.UserBean"%>
 <%@page import="com.mysql.cj.xdevapi.JsonArray"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.ArrayList"%>

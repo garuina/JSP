@@ -1,4 +1,4 @@
-<%@page import="bean.StudentBean"%>
+<%@page import="kr.co.farmstory1.bean.StudentBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>

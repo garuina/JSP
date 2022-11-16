@@ -1,5 +1,5 @@
-<%@page import="kr.co.shop.db.DBCP"%>
-<%@page import="kr.co.shop.bean.CustomerBean"%>
+<%@page import="kr.co.farmstory1.bean.CustomerBean"%>
+<%@page import="config.DBCP"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -11,7 +11,7 @@
 List<CustomerBean> customers  = new ArrayList<>();
 	
 	try{
-		Connection conn = DBHelper.getConnection();
+		Connection conn = DBCP.getConnection();
 	
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `customer`");

@@ -1,4 +1,4 @@
-<%@page import="kr.co.shop.db.DBCP"%>
+<%@page import="config.DBCP"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -14,7 +14,7 @@
 
 
 		try{
-	Connection conn = DBHelper.getConnection();
+	Connection conn = DBCP.getConnection();
 	
 	String sql = "UPDATE `book` SET `bookName`=?, `publisher`=?, `price`=?";
 		   		   sql += "WHERE `bookId`=?";

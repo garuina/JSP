@@ -1,4 +1,4 @@
-<%@page import="kr.co.shop.db.DBCP"%>
+<%@page import="config.DBCP"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
@@ -15,7 +15,7 @@
 	
 	// 데이터베이스 작업
 	try{
-		Connection conn = DBHelper.getConnection();
+		Connection conn = DBCP.getConnection();
 		
 		// 3단계
 		String sql = "INSERT INTO `book` VALUES (?,?,?,?)";

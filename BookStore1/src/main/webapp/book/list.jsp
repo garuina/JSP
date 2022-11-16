@@ -1,17 +1,17 @@
-<%@page import="kr.co.shop.db.DBCP"%>
+<%@page import="kr.co.farmstory1.bean.BookBean"%>
+<%@page import="config.DBCP"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.co.shop.bean.BookBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 List<BookBean> books  = new ArrayList<>();
 	
 	try{
-		Connection conn = DBHelper.getConnection();
+		Connection conn = DBCP.getConnection();
 	
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM `book`");

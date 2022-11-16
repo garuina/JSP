@@ -1,5 +1,5 @@
 <%@page import="config.JDBC"%>
-<%@page import="bean.UserBean"%>
+<%@page import="kr.co.farmstory1.bean.UserBean"%>
 <%@page import="org.jdom2.output.Format"%>
 <%@page import="org.jdom2.output.XMLOutputter"%>
 <%@page import="org.jdom2.Element"%>
