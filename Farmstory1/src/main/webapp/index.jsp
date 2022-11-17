@@ -5,52 +5,50 @@
 <%@ include file="./_header.jsp" %>
 <%
 		List<ArticleBean> latests = ArticleDAO.getInstance().selectLatest();
-
+		
+		if(latests.size() <15){
+			ArticleBean article = new ArticleBean();
+			article.setNo(0);
+			article.setTitle("제목입니다.");
+			article.setRdate("22-11-17");
+			
+			for(int i=0; i<15; i++){
+				latests.add(article);
+			}
+		}
 %>
 <script>
 	$(function() {
 		
 		// 공지사항 최신글 가져오기
-		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=notice', function(data){
-			
+		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=notice', function(data){			
 			$('#tabs-1 .loading').remove();
 			
 			for(let latest of data){
-				//console.log(latest.title);
-				let url = "/Farmstory1/board/view.jsp?group=communitiy&cate=notice&pg=1&no="+latest.no;
-			$('#tabs-1 .txt').append("<li><a href>"+latest.title+"</a></li>");
-			
+				let url = "/Farmstory1/board/view.jsp?group=Community&cate=notice&pg=1&no="+latest.no;
+				$('#tabs-1 .txt').append("<li><a href='"+url+"'>· "+latest.title+"</a></li>");	
 			}
-			
 		});
 		
 		
 		// 1:1 고객문의 최신글 가져오기
-		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=qna', function(data){
-			
+		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=qna', function(data){			
 			$('#tabs-2 .loading').remove();
 			
 			for(let latest of data){
-				//console.log(latest.title);
-				let url = "/Farmstory1/board/view.jsp?group=communitiy&cate=qna&pg=1&no="+latest.no;
-			$('#tabs-2 .txt').append("<li><a href>"+latest.title+"</a></li>");
-			
+				let url = "/Farmstory1/board/view.jsp?group=Community&cate=qna&pg=1&no="+latest.no;
+				$('#tabs-2 .txt').append("<li><a href='"+url+"'>· "+latest.title+"</a></li>");	
 			}
-			
 		});
 		
 		// 자주묻는질문 최신글 가져오기
-		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=fnq', function(data){
-			
+		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=fnq', function(data){			
 			$('#tabs-3 .loading').remove();
 			
 			for(let latest of data){
-				//console.log(latest.title);
-				let url = "/Farmstory1/board/view.jsp?group=communitiy&cate=fnq&pg=1&no="+latest.no;
-			$('#tabs-3 .txt').append("<li><a href>"+latest.title+"</a></li>");
-			
+				let url = "/Farmstory1/board/view.jsp?group=Community&cate=fnq&pg=1&no="+latest.no;
+				$('#tabs-3 .txt').append("<li><a href='"+url+"'>· "+latest.title+"</a></li>");	
 			}
-			
 		});
 		
 	});
