@@ -56,6 +56,9 @@ public class Sql {
 												+ "LEFT JOIN `board_file` AS b "
 												+ "ON a.`no` = b.`parent` "
 												+ "WHERE `no`=?";
+	
+	
+	
 	public static final String SELECT_FILE = "select * from `board_file` where `fno`=?";
 	public static final String SELECT_FILE_WITH_PARENT = "select * from `board_file` where `parent`=?";
 	
@@ -66,6 +69,14 @@ public class Sql {
 	public static final String SELECT_COMMENT_LATEST = "SELECT a.*, b.nick FROM `board_article` AS a "
 													+ "JOIN `board_user` AS b USING(`uid`) "
 													+ "WHERE `parent` != 0 ORDER BY `no` DESC LIMIT 1";
+	
+	
+	public static final String SELECT_LATESTS = "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='grow' order BY `no` DESC LIMIT 5) "
+												+ "UNION "
+												+ "(SELECT `no`,`title`, `rdate` FROM `board_article` WHERE `cate`='school' order BY `no` DESC LIMIT 5) "
+												+ "UNION "
+												+ "(SELECT `no`,`title`, `rdate` FROM `board_article` WHERE `cate`='story' order BY `no` DESC LIMIT 5)";
+	
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `board_article` SET `hit` = `hit` + 1 WHERE `no`=? ";
 
 	
