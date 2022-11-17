@@ -19,7 +19,7 @@
 			String[] hobbies = request.getParameterValues("hobby");
 			*/
 		%>
-		<jsp:useBean id="n" class="w kr.co.farmstory1.bean.UserBe">
+		<jsp:useBean id="ub" class="bean.UserBean">
 			<jsp:setProperty property="name" name="ub"/>
 			<jsp:setProperty property="birth" name="ub"/>
 			<jsp:setProperty property="addr" name="ub"/>

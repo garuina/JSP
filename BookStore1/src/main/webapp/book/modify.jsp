@@ -1,4 +1,4 @@
-<%@page import="kr.co.farmstory1.bean.BookBean"%>
+<%@page import="bean.BookBean"%>
 <%@page import="config.DBCP"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>

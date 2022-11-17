@@ -7,6 +7,56 @@
 		List<ArticleBean> latests = ArticleDAO.getInstance().selectLatest();
 
 %>
+<script>
+	$(function() {
+		
+		// 공지사항 최신글 가져오기
+		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=notice', function(data){
+			
+			$('#tabs-1 .loading').remove();
+			
+			for(let latest of data){
+				//console.log(latest.title);
+				let url = "/Farmstory1/board/view.jsp?group=communitiy&cate=notice&pg=1&no="+latest.no;
+			$('#tabs-1 .txt').append("<li><a href>"+latest.title+"</a></li>");
+			
+			}
+			
+		});
+		
+		
+		// 1:1 고객문의 최신글 가져오기
+		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=qna', function(data){
+			
+			$('#tabs-2 .loading').remove();
+			
+			for(let latest of data){
+				//console.log(latest.title);
+				let url = "/Farmstory1/board/view.jsp?group=communitiy&cate=qna&pg=1&no="+latest.no;
+			$('#tabs-2 .txt').append("<li><a href>"+latest.title+"</a></li>");
+			
+			}
+			
+		});
+		
+		// 자주묻는질문 최신글 가져오기
+		$.get('/Farmstory1/board/proc/getLatest.jsp?cate=fnq', function(data){
+			
+			$('#tabs-3 .loading').remove();
+			
+			for(let latest of data){
+				//console.log(latest.title);
+				let url = "/Farmstory1/board/view.jsp?group=communitiy&cate=fnq&pg=1&no="+latest.no;
+			$('#tabs-3 .txt').append("<li><a href>"+latest.title+"</a></li>");
+			
+			}
+			
+		});
+		
+	});
+	
+</script>
+
     <main>
         <div class="slider">
             <ul>
@@ -117,25 +167,19 @@
                         <li><a href="#tabs-3">자주묻는 질문</a></li>
                     </ul>
                     <div id="tabs-1">
-                        <ul class="txt">
-                            <li><a href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                            <li><a href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                            <li><a href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
-                        </ul>
+                     <ul class="txt">
+                       <img src="./img/loading.gif" class="loading">
+                     </ul>
                     </div>
                     <div id="tabs-2">
-                        <ul class="txt">
-                            <li><a href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                            <li><a href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                            <li><a href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
-                        </ul>
+                      <ul class="txt">
+                       <img src="./img/loading.gif" class="loading">
+                     </ul>
                     </div>
                     <div id="tabs-3">
-                        <ul class="txt">
-                            <li><a href="#">· 홈페이지를 오픈하였습니다.</a></li>
-                            <li><a href="#">· 홈페이지를 오픈하였습니다.</a></li>
-                            <li><a href="#">· 홈페이지를 오픈하였습니다.</a></li>
-                        </ul>
+                       <ul class="txt">
+                       <img src="./img/loading.gif" class="loading">
+                     </ul>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-String popupMode = "on";
+	String popupMode = "on";
+
+	Cookie[] cookies = request.getCookies();
+	if(cookies != null){
+		for(Cookie c : cookies){
+			String cookieName = c.getName();
+			String cookieValue = c.getValue();
+			if(cookieName.equals("PopupClose")){
+				popupMode = cookieValue;
+			}
+		
+		}
+	}
 %>
 
 <!DOCTYPE html>
@@ -9,7 +21,7 @@ String popupMode = "on";
 	<meta charset="UTF-8">
 	<title>쿠키를 이용한 팝업 관리 ver 0.1</title>
 	<style>
-	div#pop {
+	div#popup {
 		position : absolute; top:100px; left:50px; color:yellow;
 		width: 270px; height: 100px; background-color: gray;
 	}

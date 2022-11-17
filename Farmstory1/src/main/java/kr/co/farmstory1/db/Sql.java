@@ -77,6 +77,9 @@ public class Sql {
 												+ "UNION "
 												+ "(SELECT `no`,`title`, `rdate` FROM `board_article` WHERE `cate`='story' order BY `no` DESC LIMIT 5)";
 	
+	public static final String SELECT_LATEST = "SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`=? ORDER BY `no` DESC LIMIT 3";
+	
+	
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `board_article` SET `hit` = `hit` + 1 WHERE `no`=? ";
 
 	

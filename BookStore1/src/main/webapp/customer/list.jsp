@@ -1,4 +1,4 @@
-<%@page import="kr.co.farmstory1.bean.CustomerBean"%>
+<%@page import="bean.CustomerBean"%>
 <%@page import="config.DBCP"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
