@@ -39,6 +39,18 @@
 	$(function() {
 		$('#closeBtn').click(function() {
 			$('#popup').hide();
+			
+			var chkVal = $("input:checkbox[id=inactiveToday]:checked").val();
+			
+			$.ajax({
+				url : "./PopupCookie.jsp",
+				type : 'get',
+				data : {inactiveToday : chkVal},
+				dataType : "text",
+				sucess : function(resData) {
+					if (resData != '') location.reload();
+				}
+			});
 		});
 	});
 	</script>

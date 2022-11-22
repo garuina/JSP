@@ -28,7 +28,6 @@
 	
 	$('#btnUidCheck').click(function(){
 		
-		alert('ㅋㄹ');
 		
 		let uid = $('input[name=uid]').val();
 		//alert(uid);
