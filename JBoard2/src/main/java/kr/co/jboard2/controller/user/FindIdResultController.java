@@ -8,18 +8,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/user/findResult.do")
-public class FindIdResultController extends HttpServlet {
+import kr.co.jboard2.dao.UserDAO;
+import kr.co.jboard2.vo.UserVo;
+
+@WebServlet("/user/findIdResult.do")
+public class FindIdResultController extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
 	public void init() throws ServletException {
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/user/findIdResultController.jsp");
+		
+		//HttpSession sess = req.getSession();
+		//UserVO vo = (UserVO) sess.getAttribute("sessUserForFindId");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/user/findIdResult.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
