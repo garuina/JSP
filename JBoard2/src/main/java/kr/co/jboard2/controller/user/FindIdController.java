@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.JsonObject;
 
 import kr.co.jboard2.dao.UserDAO;
-import kr.co.jboard2.vo.UserVo;
+import kr.co.jboard2.vo.UserVO;
 
 @WebServlet("/user/findId.do")
 public class FindIdController extends HttpServlet  {
@@ -36,7 +36,7 @@ public class FindIdController extends HttpServlet  {
 		String name  = req.getParameter("name");
 		String email = req.getParameter("email");
 		
-		UserVo vo = UserDAO.getInstance().selectUserForFindId(name, email);
+		UserVO vo = UserDAO.getInstance().selectUserForFindId(name, email);
 		
 		// JSON 출력
 		JsonObject json = new JsonObject();

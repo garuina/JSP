@@ -10,17 +10,16 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kr.co.jboard2.dao.UserDAO;
-import kr.co.jboard2.vo.UserVo;
+import kr.co.jboard2.vo.UserVO;
 
 @WebFilter("/*")
-public class LoginFilter implements Filter {
+public class AutoLoginFilter implements Filter {
 	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -43,7 +42,7 @@ public class LoginFilter implements Filter {
 				if(cookie.getName().equals("SESSID")) {
 					
 					String sessId = cookie.getValue();					
-					UserVo vo = UserDAO.getInstance().selectUserBySessId(sessId);
+					UserVO vo = UserDAO.getInstance().selectUserBySessId(sessId);
 					
 					if(vo != null) {
 						// 로그인 처리

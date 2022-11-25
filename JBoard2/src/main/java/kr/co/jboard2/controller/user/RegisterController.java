@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.jboard2.dao.UserDAO;
-import kr.co.jboard2.vo.UserVo;
+import kr.co.jboard2.vo.UserVO;
 
 @WebServlet("/user/register.do")
 public class RegisterController extends HttpServlet {
@@ -44,7 +44,7 @@ public class RegisterController extends HttpServlet {
 				String regip = req.getRemoteAddr();
 			
 				// VO 데이터 생성
-				UserVo vo = new UserVo();
+				UserVO vo = new UserVO();
 				vo.setUid(uid);
 				vo.setPass(pass1);
 				vo.setName(name);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.jboard2.dao.UserDAO;
-import kr.co.jboard2.vo.UserVo;
+import kr.co.jboard2.vo.UserVO;
 
 @WebServlet("/user/findIdResult.do")
 public class FindIdResultController extends HttpServlet  {
