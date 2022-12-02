@@ -30,7 +30,7 @@ public class RegisterController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		// 데이터 수신
+				// 데이터 수신
 				String uid = req.getParameter("uid");
 				String pass1 = req.getParameter("pass1");
 				String pass2 = req.getParameter("pass2");

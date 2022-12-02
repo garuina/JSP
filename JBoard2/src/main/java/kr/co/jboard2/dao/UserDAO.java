@@ -149,6 +149,7 @@ public class UserDAO extends DBHelper{
 				vo.setAddr2(rs.getString(10));
 				vo.setRegip(rs.getString(11));
 				vo.setRdate(rs.getString(12));
+				vo.setWdate(rs.getString(13));
 			}
 			
 			close();
@@ -160,6 +161,8 @@ public class UserDAO extends DBHelper{
 		logger.debug("vo : " + vo);
 		return vo;
 	}
+	
+	
 	
 	public void selectUsers() {}
 	
@@ -254,6 +257,23 @@ public class UserDAO extends DBHelper{
 	}
 	
 	public void updateUser() {}
+	
+	public int updateGrade(String uid) {
+		int result = 0;
+		try {
+			logger.info("updateGrade...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_USER_GRADE);
+			psmt.setString(1, uid);
+			
+			close();			
+			
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return result;
+	}
 	
 	public int updateUserPassword(String uid, String pass) {
 		
