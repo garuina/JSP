@@ -1,6 +1,40 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script>
+	$(function(){
+		
+		// 공지사항 최신글 가져오기
+		$.get('/Farmstory2/getLatest.do?cate=notice', function(data){
+			$('#tabs-1 .loading').remove();
+			
+			for(let latest of data){
+				//console.log(latest.title);
+				let url = "/Farmstory2/board/view.do?group=community&cate=notice&pg=1&no="+latest.no;
+				$('#tabs-1 .txt').append("<li><a href='"+url+"'>"+latest.title+"</a></li>");
+			}
+		});
+		
+		// 1:1고객문의 최신글 가져오기
+		$.get('/Farmstory2/getLatest.do?cate=qna', function(data){
+			$('#tabs-2 .loading').remove();
+			
+			for(let latest of data){
+				let url = "/Farmstory2/board/view.do?group=community&cate=qna&pg=1&no="+latest.no;
+				$('#tabs-2 .txt').append("<li><a href='"+url+"'>"+latest.title+"</a></li>");
+			}
+		});
+		
+		// 자주묻는질문 최신글 가져오기
+		$.get('/Farmstory2/getLatest.do?cate=faq', function(data){
+			$('#tabs-3 .loading').remove();
+			
+			for(let latest of data){
+				let url = "/Farmstory2/board/view.do?group=community&cate=faq&pg=1&no="+latest.no;
+				$('#tabs-3 .txt').append("<li><a href='"+url+"'>"+latest.title+"</a></li>");
+			}
+		});
+	});
+</script>
 <jsp:include page="./_header.jsp" />
 <main>
     <div class="slider">

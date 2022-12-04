@@ -84,11 +84,11 @@ public class Sql {
 													+ "JOIN `board_user` AS b USING(`uid`) "
 													+ "WHERE `parent`=? ORDER BY `no` asc";
 	
-	public static final String SELECT_LATESTS = "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='grow' order BY `no` DESC LIMIT 5) "
-												+ "UNION "
-												+ "(SELECT `no`,`title`, `rdate` FROM `board_article` WHERE `cate`='school' order BY `no` DESC LIMIT 5) "
-												+ "UNION "
-												+ "(SELECT `no`,`title`, `rdate` FROM `board_article` WHERE `cate`='story' order BY `no` DESC LIMIT 5)";
+	public static final String SELECT_LATESTS = "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='grow' ORDER BY `no` DESC LIMIT 5) "
+			+ "UNION "
+			+ "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='school' ORDER BY `no` DESC LIMIT 5) "
+			+ "UNION "
+			+ "(SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`='story' ORDER BY `no` DESC LIMIT 5)";
 	
 	
 	public static final String SELECT_LATEST = "SELECT `no`, `title`, `rdate` FROM `board_article` WHERE `cate`=? ORDER BY `no` DESC LIMIT 3";

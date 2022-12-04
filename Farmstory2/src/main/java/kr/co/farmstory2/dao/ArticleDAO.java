@@ -245,13 +245,12 @@ public class ArticleDAO extends DBHelper {
 		}
 		
 		
-		public List<ArticleVO> selectLatest() {
+			public List<ArticleVO> selectLatest() {
 			
 			List<ArticleVO> latests = new ArrayList<>();
 			
 			try {
-				logger.debug("selectLatest...");
-				
+				logger.debug("selectlatest...");
 				conn = getConnection();
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(Sql.SELECT_LATESTS);
@@ -261,53 +260,43 @@ public class ArticleDAO extends DBHelper {
 					ab.setNo(rs.getInt(1));
 					ab.setTitle(rs.getString(2));
 					ab.setRdate(rs.getString(3).substring(2, 10));
+					
 					latests.add(ab);
 				}
 				
-				rs.close();
-				stmt.close();
-				conn.close();		
-				
-			}catch (Exception e) {
+				close();
+			}catch(Exception e) {
 				logger.error(e.getMessage());
 			}
-			
-			logger.debug("latests size : " + latests.size());
+			logger.debug("latest size : "+ latests.size());
 			return latests;
 		}
-		
-		public List<ArticleVO> selectLatest(String cate) {
-			
-			List<ArticleVO> getlatests = new ArrayList<>();
-			
-			try {
-				logger.debug("selectLatest(String)...");
+
+			public List<ArticleVO> selectLatest(String cate) {
+				List<ArticleVO> latest = new ArrayList<>();
 				
-				conn = getConnection();
-				psmt = conn.prepareStatement(Sql.SELECT_LATEST);
-				psmt.setString(1, cate);
-				
-				ResultSet rs = psmt.executeQuery(); 
-				
-				while(rs.next()) {
-					ArticleVO ab = new ArticleVO();
-					ab.setNo(rs.getInt(1));
-					ab.setTitle(rs.getString(2));
-					ab.setRdate(rs.getString(3).substring(2, 10));
-					getlatests.add(ab);
+				try {
+					logger.debug("selectLatest(String)...");
+					conn = getConnection();
+					psmt = conn.prepareStatement(Sql.SELECT_LATEST);
+					psmt.setString(1, cate);
+					rs = psmt.executeQuery();
+					
+					while(rs.next()) {
+						ArticleVO ab = new ArticleVO();
+						ab.setNo(rs.getInt(1));
+						ab.setTitle(rs.getString(2));
+						ab.setRdate(rs.getString(3).substring(2, 10));
+						latest.add(ab);
+					}
+					close();
+				}catch(Exception e) {
+					logger.error(e.getMessage());
 				}
-				
-				close();
-						
-				
-			}catch (Exception e) {
-				logger.error(e.getMessage());
+				logger.debug("latest size : "+ latest.size());
+				return latest;
 			}
 			
-			logger.debug("latests size : " + getlatests.size());
-			return getlatests;
-		}
-		
 		public FileVO selectFile(String fno) {
 			
 			FileVO fb = null;
