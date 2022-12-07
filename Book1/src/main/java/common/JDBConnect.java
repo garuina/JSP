@@ -13,13 +13,13 @@ public class JDBConnect {
 	public ResultSet rs;
 
 	// 기본 생성자
-	public JDBConnect() {
+	public JDBConnect(String drv, String url2, String id2, String pw) {
 		try {
 			// JDBC 드라이버 로드
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			// DB에 연결
-			String url = "jdbc:mysql://127.0.0.1:3306/java1db";
+			String url = "jdbc:mysql://127.0.0.1:3306/java1_board";
 			String id = "root";
 			String pwd = "1234";
 			con = DriverManager.getConnection(url, id , pwd);

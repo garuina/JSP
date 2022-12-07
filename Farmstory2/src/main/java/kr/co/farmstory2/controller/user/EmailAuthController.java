@@ -36,8 +36,8 @@ public class EmailAuthController extends HttpServlet {
 		int code = ThreadLocalRandom.current().nextInt(100000, 1000000);
 		
 		// 기본정보
-		String sender = "xhaezer0@gmail.com";
-		String password = "ytnlstneolvxstyh";
+		String sender = "a01074882716@gmail.com";
+		String password = "cvqprsvfnsefwght";
 		
 		String title = "Farmstory2 인증코드 입니다.";
 		String content = "인증코드 6자리는 "+code+" 입니다.";
